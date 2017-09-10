@@ -11,7 +11,7 @@ include (cmake_modules/SetGCC6.cmake)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wformat=2 -Wall -Wextra")
 # Set optimalization flags
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
-set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules ${CMAKE_MODULE_PATH})
+set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/pigpio ${CMAKE_MODULE_PATH})
 
 ### Main library target
 # Set source files
@@ -34,12 +34,12 @@ set_target_properties (vl53l0x PROPERTIES
 
 ### WiringPi
 # Set WiringPi directory: from cmake -D, from ENV and default
-message (STATUS "Using system pigpio library")
+#message (STATUS "Using system pigpio library")
 find_package (pigpio REQUIRED)
-
-# Add WiringPi dependency
-# target_include_directories (vl53l0x PUBLIC wiringPi)
 target_link_libraries (vl53l0x LINK_PUBLIC pigpio)
+# Add WiringPi dependency
+add_definitions(-std=c++11 -lpigpio)
+
 
 ### Install target
 set (CMAKE_INSTALL_PREFIX /usr/)

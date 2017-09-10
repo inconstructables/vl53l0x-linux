@@ -1,7 +1,9 @@
 #include <iostream>
+#include <pigpio.h>
 #include <VL53L0X.h>
 
 int main() {
+    gpioInitialise();
 	VL53L0X sensor;
 	sensor.init();
 	sensor.setTimeout(200);

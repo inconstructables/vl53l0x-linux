@@ -12,7 +12,7 @@
 #include <csignal>
 #include <iomanip>
 #include <iostream>
-#include <wiringPi.h>
+#include <pigpio.h>
 
 #include <VL53L0X.h>
 
@@ -30,6 +30,8 @@ void sigintHandler(int) {
 int main() {
 	// Register SIGINT handler
 	signal(SIGINT, sigintHandler);
+
+    gpioInitialise();
 
 	// Create and initialize the sensor
 	VL53L0X sensor;

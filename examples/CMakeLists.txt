@@ -14,23 +14,24 @@ set (VL53L0X_EXAMPLES
 
 foreach (example ${VL53L0X_EXAMPLES})
 	add_executable (${example} EXCLUDE_FROM_ALL ${example}.cpp)
-	if (TARGET wiringPi)
+	if (TARGET pigpio)
 		target_include_directories (${example} PUBLIC
 			${CMAKE_CURRENT_SOURCE_DIR}/../
-			wiringPi
+			pigpio
 		)
 		target_link_libraries (${example} LINK_PUBLIC
 			vl53l0x
-			wiringPi
+			pigpio
+            -lpthread
 		)
 	else ()
 		target_include_directories (${example} PUBLIC
 			${CMAKE_CURRENT_SOURCE_DIR}/../
-			${wiringPi_INCLUDE_DIR}
+			${pigpio_INCLUDE_DIR}
 		)
 		target_link_libraries (${example} LINK_PUBLIC
 			vl53l0x
-			${wiringPi_LIBRARIES}
+			${pigpio_LIBRARIES}
 		)
 	endif ()
 endforeach (example)
