@@ -326,7 +326,7 @@ void VL53L0X::writeRegister32Bit(uint8_t reg, uint32_t value) {
     buffer[1] = (value >> 16) & 0xFF;
     buffer[2] = (value >> 8) & 0xFF;
     buffer[3] = value & 0xFF;
-
+  
     _wire->beginTransmission(address);
     _wire->writeBlock((uint8_t) reg, buffer, 4);
     _wire->endTransmission();

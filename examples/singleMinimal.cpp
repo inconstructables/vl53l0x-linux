@@ -1,4 +1,5 @@
 #include <iostream>
+#include <pigpio.h>
 #include <VL53L0X.h>
 
 int main() {
