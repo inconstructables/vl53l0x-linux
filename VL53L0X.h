@@ -7,10 +7,12 @@
 #define _VL53L0X_H
 
 #include <cstdint>
-#include "../LinuxDuino/LinuxDuino.h"
+#include "../PiWire/PiWire.h"
 
 //#define VL53L0X_ADDRESS_DEFAULT 0b0101001
 #define VL53L0X_ADDRESS_DEFAULT 0x29
+
+using namespace PiWire;
 
 class VL53L0X {
 public:
@@ -282,7 +284,7 @@ private:
     /*** Private fields ***/
 
     int i2cFileDescriptor;
-    LinuxDuino::Wire *_wire = nullptr;
+    Wire *_wire = nullptr;
     int16_t xshutGPIOPin;
     uint8_t address;
 

@@ -11,8 +11,8 @@
 #include <unistd.h>
 // GPIO: pinMode(), digitalWrite()
 #include <wiringPi.h>
-// I2C: LinuxDuino
-using namespace LinuxDuino;
+// I2C: PiWire
+using namespace PiWire;
 
 /*** Defines ***/
 

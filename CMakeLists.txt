@@ -21,4 +21,4 @@ set_target_properties(vl53l0x PROPERTIES
 
 ### WiringPi
 target_link_libraries(vl53l0x LINK_PUBLIC wiringPi)
-add_dependencies(vl53l0x LinuxDuino)
+add_dependencies(vl53l0x PiWire)
